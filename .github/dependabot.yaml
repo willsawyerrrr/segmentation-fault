@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    reviewers:
+      - "willsawyerrrr"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    reviewers:
+      - "willsawyerrrr"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "pip"
+    reviewers:
+      - "willsawyerrrr"
+    directory: "/backend"
+    schedule:
+      interval: "daily"

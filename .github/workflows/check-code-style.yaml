@@ -1,0 +1,34 @@
+name: Check Code Style
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: psf/black@stable
+        with:
+          src: backend
+
+  isort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: isort/isort-action@v1
+        with:
+          configuration: --check-only --diff --profile black
+          requirements-files: backend/requirements.txt
+          sort-paths: backend
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm clean-install
+      - run: npx prettier --check .
