@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply text-white;
+    }
+
+    h1 {
+        @apply text-4xl font-bold;
+    }
+
+    h2 {
+        @apply text-3xl font-bold;
+    }
+
+    h3 {
+        @apply text-2xl font-bold;
+    }
+
+    h4 {
+        @apply text-xl font-bold;
+    }
+
+    h5 {
+        @apply text-lg font-bold;
+    }
+
+    h6 {
+        @apply text-base font-bold;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    button,
+    input,
+    textarea {
+        @apply w-full rounded-md border border-gray-800 bg-gray-800 px-3 py-2 text-white;
+    }
+
+    input[type="file"] {
+        @apply border-gray-800 p-0 file:w-full file:rounded-md file:border-2 file:border-solid file:border-gray-800 file:bg-gray-800 file:p-2 file:font-semibold file:text-white hover:file:border-gray-800 hover:file:bg-gray-800;
+    }
+
+    label:has(+ input:required)::after {
+        @apply pl-1 text-red-600 content-["*"];
+    }
+
+    label:has(+ input) {
+        @apply -mb-3 pl-1;
+    }
+}

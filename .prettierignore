@@ -1,0 +1,15 @@
+*
+
+# whitelist
+!**
+
+!*.js
+!*.ts
+!*.jsx
+!*.tsx
+!*.json
+!*.css
+!*.html
+
+venv
+node_modules
