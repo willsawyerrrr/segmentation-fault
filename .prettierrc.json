@@ -15,9 +15,9 @@
     "importOrderSeparation": true,
     "overrides": [
         {
-            "files": "**/*.html",
+            "files": ["**/*.yaml"],
             "options": {
-                "printWidth": 120
+                "tabWidth": 2
             }
         }
     ],
