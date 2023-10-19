@@ -2,7 +2,6 @@ from os import getenv
 
 from mysql.connector import MySQLConnection, connect
 from mysql.connector.abstracts import MySQLConnectionAbstract
-from mysql.connector.cursor import MySQLCursor
 
 db: MySQLConnection = connect(
     user=getenv("DB_USER"),
