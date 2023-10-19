@@ -6,6 +6,11 @@ services:
       MYSQL_DATABASE: segmentation_fault
       MYSQL_USER: segmentation_fault
       MYSQL_PASSWORD: aBo0pxbV@YQ5FARIEIbS
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30
     image: mysql
     restart: always
     volumes:
@@ -14,7 +19,8 @@ services:
     build: ./backend
     container_name: backend
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     env_file:
       - ./backend/.env
     ports:
