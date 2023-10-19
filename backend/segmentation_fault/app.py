@@ -21,7 +21,7 @@ app = FastAPI(
     version=VERSION,
     docs_url=None,
     redoc_url=None,
-    debug=getenv("DEBUG", False),
+    debug=getenv("DEBUG") == "True",
 )
 """ The API application. """
 
