@@ -14,6 +14,9 @@ jobs:
         working-directory: backend
 
   npm:
+    strategy:
+      matrix:
+        source-directory: [frontend, backend]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,3 +24,4 @@ jobs:
         with:
           node-version: "18"
       - run: npm clean-install
+        working-directory: ${{ matrix.source-directory }}
