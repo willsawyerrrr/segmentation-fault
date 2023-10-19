@@ -22,6 +22,9 @@ jobs:
           sort-paths: backend
 
   prettier:
+    strategy:
+      matrix:
+        source-directory: [frontend, backend]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,4 +32,6 @@ jobs:
         with:
           node-version: 20
       - run: npm clean-install
+        working-directory: ${{ matrix.source-directory }}
       - run: npx prettier --check .
+        working-directory: ${{ matrix.source-directory }}
