@@ -15,6 +15,7 @@ services:
     restart: always
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./segmentation_fault.sql:/docker-entrypoint-initdb.d/segmentation_fault.sql
   backend:
     build: ./backend
     container_name: backend
