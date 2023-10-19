@@ -11,9 +11,10 @@ def main() -> int:
     config = uvicorn.Config(
         access_log=True,
         app="app:app",
+        host="0.0.0.0"
         log_level="debug" if getenv("DEBUG") == "True" else "info",
+        port=80,
         reload=getenv("DEBUG") == "True",
-        uds="api.sock",
         workers=4,
     )
     server = uvicorn.Server(config)
