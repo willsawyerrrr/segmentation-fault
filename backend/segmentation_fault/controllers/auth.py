@@ -257,7 +257,7 @@ def validate_password(password: str) -> bool:
     # $                                     End of string
     query = f"^(?=.*[{string.ascii_uppercase}])(?=.*[{string.ascii_lowercase}])(?=.*[{string.punctuation}])(?=.*[{string.digits}]).{{8,}}$"
 
-    return (
-        match := re.search(query, password)  # matches part of the string
-        and match.group(0) == password  # matches the whole string
-    )
+    if not (match := re.search(query, password)):  # matches part of the string
+        return False
+
+    return match.group(0) == password  # matches the whole string
