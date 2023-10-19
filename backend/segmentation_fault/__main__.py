@@ -11,8 +11,8 @@ def main() -> int:
     config = uvicorn.Config(
         access_log=True,
         app="app:app",
-        log_level="debug" if bool(getenv("DEBUG", False)) else "info",
-        reload=bool(getenv("DEBUG", False)),
+        log_level="debug" if getenv("DEBUG") == "True" else "info",
+        reload=getenv("DEBUG") == "True",
         uds="api.sock",
         workers=4,
     )
